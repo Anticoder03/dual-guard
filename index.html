@@ -3,293 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DualGuard CyberSec - Advanced Cyber Defense</title>
+    <title>DualGuard CyberSec | Cloud Security & VAPT Services for Startups & Enterprises</title>
+    <meta name="description" content="DualGuard CyberSec offers premium VAPT, SOC, and Cloud Security solutions. Partnered with Netskope, Cloudflare, and CrowdStrike to protect your digital assets.">
+    <meta name="keywords" content="VAPT Services, Cloud Security Posture Management, SOC-as-a-Service, Netskope partner, Penetration Testing company India, Web Application Security">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0A192F;
-            color: #F9FAFB;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Animated Grid Background */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-image: 
-                linear-gradient(0deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-            animation: gridShift 20s linear infinite;
-        }
-
-        @keyframes gridShift {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-
-        /* Glow Effects */
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .neon-glow:hover {
-            box-shadow: 0 0 40px rgba(0, 229, 255, 0.6), 0 0 60px rgba(255, 45, 45, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .text-glow {
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
-
-        .btn-glow {
-            position: relative;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 229, 255, 0.3);
-        }
-
-        .btn-glow:hover {
-            background: #FF2D2D;
-            box-shadow: 0 0 20px rgba(255, 45, 45, 0.6), inset 0 0 20px rgba(255, 45, 45, 0.2);
-            border-color: #FF2D2D;
-            transform: scale(1.05);
-        }
-
-        .btn-secondary:hover {
-            background: transparent;
-            border-color: #00E5FF;
-            color: #00E5FF;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-        }
-
-        /* Card Hover Effect */
-        .service-card {
-            background: linear-gradient(135deg, rgba(31, 59, 77, 0.8), rgba(31, 59, 77, 0.4));
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .service-card:hover {
-            border-color: rgba(0, 229, 255, 0.6);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-            transform: translateY(-10px);
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #00E5FF;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-icon {
-            color: #FF2D2D;
-            filter: drop-shadow(0 0 10px #FF2D2D);
-        }
-
-        /* Scanning Line Animation */
-        @keyframes scan {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-        }
-
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00E5FF, transparent);
-            animation: scan 3s ease-in-out infinite;
-        }
-
-        /* Logo Grid */
-        .partner-logo {
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            border-radius: 8px;
-            padding: 10px 20px;
-            background: rgba(31, 59, 77, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .partner-logo:hover {
-            border-color: #00E5FF;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
-            background: rgba(31, 59, 77, 0.6);
-        }
-
-        /* VAPT Grid Items */
-        .vapt-item {
-            background: linear-gradient(135deg, rgba(31, 59, 77, 0.6), rgba(31, 59, 77, 0.2));
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.4s ease;
-            text-align: center;
-        }
-
-        .vapt-item:hover {
-            border-color: #7CFC00;
-            box-shadow: 0 0 25px rgba(124, 252, 0, 0.3);
-            transform: translateY(-8px);
-            background: linear-gradient(135deg, rgba(31, 59, 77, 0.8), rgba(31, 59, 77, 0.4));
-        }
-
-        /* Comparison Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(31, 59, 77, 0.3);
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: rgba(0, 229, 255, 0.1);
-            border-bottom: 2px solid rgba(0, 229, 255, 0.3);
-            padding: 1.5rem;
-            text-align: left;
-            color: #00E5FF;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(0, 229, 255, 0.1);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .checkmark {
-            color: #7CFC00;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        .xmark {
-            color: #FF2D2D;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        /* Scroll Animation */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(90deg, #00E5FF, #7CFC00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Hero Particles */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00E5FF;
-            border-radius: 50%;
-            opacity: 0.5;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .grid-bg {
-                background-size: 30px 30px;
-            }
-
-            .text-glow {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Loading Animation for page */
-        .fade-in {
-            animation: fadeInEffect 0.8s ease-in-out forwards;
-        }
-
-        @keyframes fadeInEffect {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Smooth Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #111827;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #00E5FF;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FF2D2D;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
 </head>
 <body>
     <!-- Grid Background -->
@@ -298,17 +20,28 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-opacity-80 border-b border-cyan-500 border-opacity-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="text-2xl font-bold text-cyan-400 text-glow">⚔️ DualGuard</div>
-                <span class="text-sm text-gray-400">CyberSec</span>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <img src="./img/logo.png" alt="DualGuard Logo" class="logo">
+                    <span class="text-2xl font-bold  text-glow">DualGuard <span class=" text-cyan-400 text-2xl uppercase">Cyber<span class="uppercase text-lime-300">Sec</span></span></span>
+                </div>
+                
             </div>
-            <div class="hidden md:flex gap-8 text-gray-300">
+            <div id="nav-links" class="hidden md:flex gap-8 text-gray-300">
                 <a href="#services" class="hover:text-cyan-400 transition">Services</a>
                 <a href="#vapt" class="hover:text-cyan-400 transition">VAPT</a>
                 <a href="#why-us" class="hover:text-cyan-400 transition">Why Us</a>
                 <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
             </div>
-            <button class="md:hidden text-cyan-400">☰</button>
+            <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-cyan-400">☰</button>
+
+            <!-- Mobile dropdown menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden absolute right-4 top-full mt-2 w-44 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg py-2 flex-col space-y-1 px-3">
+                <a href="#services" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Services</a>
+                <a href="#vapt" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">VAPT</a>
+                <a href="#why-us" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Why Us</a>
+                <a href="#contact" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -322,11 +55,14 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-center fade-in">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
-                Advanced Cyber Defense for <span class="gradient-text">Modern Infrastructure</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Advanced Cyber Security Services from Startups to Enterprises
             </h1>
-            <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Elite Cloud Security, VAPT, and Managed Security Services. Enterprise-grade protection for startups and enterprises.
+            <p class="text-lg sm:text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
+                DualGuard CyberSEC bridges the gap between rapid innovation and resilient security. We empower organizations to scale fearlessly by providing elite Cloud Security, VAPT, and Managed SOC services.
+            </p>
+            <p class="text-md text-gray-400 mb-8 max-w-3xl mx-auto">
+                Our approach is unique: we protect your critical assets by combining an attacker’s mindset with a researcher’s precision. From proactive IT Security Support to deep-dive vulnerability research, we ensure your infrastructure is not just compliant, but truly secure.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <button class="btn-glow px-8 py-4 bg-red-600 text-white font-bold rounded-lg text-lg transition">
@@ -339,23 +75,58 @@
         </div>
     </section>
 
+    <!-- Cyber Security Training -->
+    <section id="training" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Cyber Security Training</h2>
+            <p class="text-center text-gray-400 mb-8">Practical, researcher-led training and certifications designed to produce job-ready security professionals and uplift internal teams.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Offensive Security & Ethical Hacking</h3>
+                    <p class="text-gray-300">OWASP Top 10, advanced web & mobile hacking, hands-on labs with Burp Suite, Kali and Metasploit.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Blue Team & SOC Operations</h3>
+                    <p class="text-gray-300">SIEM (Splunk/Wazuh), incident response lifecycles and proactive threat hunting labs.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Cloud Security & DevSecOps</h3>
+                    <p class="text-gray-300">CSPM, container security, Zero Trust and secure pipeline practices for AWS/Azure/GCP.</p>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-400">Flexible delivery: Instructor-led online, on-campus workshops, or intensive bootcamps. Specialized 2026 workshops: AI in Cyber, API Security Deep-Dive, Mobile App VAPT.</p>
+        </div>
+    </section>
+
     <!-- Trust Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="max-w-6xl mx-auto">
             <p class="text-center text-gray-400 mb-12 text-sm uppercase tracking-widest">Trusted by industry leaders</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="partner-logo">
-                    <span class="text-sm font-bold text-cyan-400">Netskope</span>
+            <div class="partner-slider" id="trusted-companies">
+                <button id="partner-prev" class="partner-arrow" aria-label="Previous">‹</button>
+                <div class="partner-track">
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">Netskope</span>
+                    </div>
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">CrowdStrike</span>
+                    </div>
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">Cloudflare</span>
+                    </div>
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">Reinfosec</span>
+                    </div>
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">K-NEXTGENTECH</span>
+                    </div>
+                    <div class="partner-item partner-logo">
+                        <span class="text-sm font-bold text-cyan-400">Xploreteq</span>
+                    </div>
                 </div>
-                <div class="partner-logo">
-                    <span class="text-sm font-bold text-cyan-400">CrowdStrike</span>
-                </div>
-                <div class="partner-logo">
-                    <span class="text-sm font-bold text-cyan-400">Cloudflare</span>
-                </div>
-                <div class="partner-logo">
-                    <span class="text-sm font-bold text-cyan-400">AWS</span>
-                </div>
+                <button id="partner-next" class="partner-arrow" aria-label="Next">›</button>
             </div>
         </div>
     </section>
@@ -363,13 +134,13 @@
     <!-- Services Section -->
     <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Our Services</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow" >Our Services</h2>
             <p class="text-center text-gray-400 mb-16">Comprehensive security solutions for your business</p>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Cloud Security Card -->
                 <div class="service-card p-8 rounded-lg neon-glow">
-                    <div class="service-icon">☁️</div>
+                    <div class="service-icon"><i class="fa-solid fa-cloud"></i></div>
                     <h3 class="text-2xl font-bold mb-4">Cloud Security</h3>
                     <p class="text-gray-300 mb-6">Protect your cloud infrastructure across AWS, Azure, and GCP with CSPM, CASB, SASE, IAM, and Zero Trust frameworks.</p>
                     <ul class="text-sm text-gray-400 space-y-2">
@@ -382,7 +153,7 @@
 
                 <!-- VAPT Card -->
                 <div class="service-card p-8 rounded-lg neon-glow">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                     <h3 class="text-2xl font-bold mb-4">VAPT Services</h3>
                     <p class="text-gray-300 mb-6">Comprehensive Vulnerability Assessment and Penetration Testing following OWASP Top 10 standards.</p>
                     <ul class="text-sm text-gray-400 space-y-2">
@@ -395,7 +166,7 @@
 
                 <!-- Managed Security Card -->
                 <div class="service-card p-8 rounded-lg neon-glow">
-                    <div class="service-icon">🛡️</div>
+                    <div class="service-icon"><i class="fa-solid fa-shield"></i></div>
                     <h3 class="text-2xl font-bold mb-4">Managed Security</h3>
                     <p class="text-gray-300 mb-6">24/7 Security Operations Center with proactive threat monitoring and incident response.</p>
                     <ul class="text-sm text-gray-400 space-y-2">
@@ -409,37 +180,33 @@
         </div>
     </section>
 
-    <!-- Cloud Security Features -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gradient-to-r from-slate-900 to-slate-800 bg-opacity-50 my-12 rounded-xl">
+    <!-- Premium Cloud Security Solutions -->
+    <section id="cloud" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gradient-to-r from-slate-900 to-slate-800 bg-opacity-50 my-12 rounded-xl">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Cloud Security Excellence</h2>
-            <p class="text-center text-gray-400 mb-16">Enterprise-grade protection for your cloud infrastructure</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                <div class="text-center p-6 border border-cyan-500 border-opacity-20 rounded-lg bg-slate-900 bg-opacity-50">
-                    <div class="text-3xl mb-3">☁️</div>
-                    <h3 class="font-bold text-cyan-400 mb-2">CSPM</h3>
-                    <p class="text-sm text-gray-400">Cloud Security Posture Management</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Premium Cloud Security Solutions</h2>
+            <p class="text-center text-gray-400 mb-8">Secure Your Digital Transformation with Zero Trust. As businesses move to the cloud, the traditional perimeter disappears. DualGuard CyberSEC provides Premium Cloud Security Solutions designed to protect your data, identities, and infrastructure across AWS, Azure, and Google Cloud (GCP).</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">Core Capabilities</h3>
+                    <ul class="text-gray-300 space-y-3">
+                        <li><strong>Cloud Security Posture Management (CSPM)</strong>: Eliminate security gaps with continuous monitoring. We identify misconfigurations, ensure compliance (PCI-DSS, SOC2), and prevent data leaks in real-time.</li>
+                        <li><strong>Cloud Access Security Broker (CASB)</strong>: Gain total visibility. Monitor and control how your data is used across SaaS, PaaS, and IaaS environments to stop unauthorized sharing.</li>
+                        <li><strong>Next-Gen SWG & Browser Security</strong>: Protect your most vulnerable entry point. We secure internet access for remote teams, shielding them from web-based threats and phishing.</li>
+                        <li><strong>Identity Management & SSO</strong>: Implement strict IAM to ensure least-privilege access.</li>
+                        <li><strong>Zero Trust & SASE</strong>: Shift from "trust by default" to "verify everywhere"; we help deploy SASE to unify networking and security.</li>
+                    </ul>
                 </div>
-                <div class="text-center p-6 border border-cyan-500 border-opacity-20 rounded-lg bg-slate-900 bg-opacity-50">
-                    <div class="text-3xl mb-3">🔐</div>
-                    <h3 class="font-bold text-cyan-400 mb-2">CASB</h3>
-                    <p class="text-sm text-gray-400">Cloud Access Security Broker</p>
-                </div>
-                <div class="text-center p-6 border border-cyan-500 border-opacity-20 rounded-lg bg-slate-900 bg-opacity-50">
-                    <div class="text-3xl mb-3">🌐</div>
-                    <h3 class="font-bold text-cyan-400 mb-2">SASE</h3>
-                    <p class="text-sm text-gray-400">Secure Access Service Edge</p>
-                </div>
-                <div class="text-center p-6 border border-cyan-500 border-opacity-20 rounded-lg bg-slate-900 bg-opacity-50">
-                    <div class="text-3xl mb-3">🔑</div>
-                    <h3 class="font-bold text-cyan-400 mb-2">IAM</h3>
-                    <p class="text-sm text-gray-400">Identity & Access Management</p>
-                </div>
-                <div class="text-center p-6 border border-cyan-500 border-opacity-20 rounded-lg bg-slate-900 bg-opacity-50">
-                    <div class="text-3xl mb-3">🎯</div>
-                    <h3 class="font-bold text-cyan-400 mb-2">Zero Trust</h3>
-                    <p class="text-sm text-gray-400">Never Trust, Always Verify</p>
+                <div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">Key Features</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>Cloud Configuration & Risk Assessment</li>
+                        <li>Identity & Access Management (IAM)</li>
+                        <li>Data Loss Prevention (DLP)</li>
+                        <li>Zero Trust Security Architecture</li>
+                        <li>CASB & SASE Implementation</li>
+                    </ul>
+                    <p class="mt-6 text-sm text-gray-400">Our Strategic Partnerships: Netskope, CrowdStrike, Cloudflare, GTP DLP</p>
                 </div>
             </div>
         </div>
@@ -448,39 +215,68 @@
     <!-- VAPT Services Section -->
     <section id="vapt" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">VAPT Services</h2>
-            <p class="text-center text-gray-400 mb-16">Comprehensive Vulnerability Assessment & Penetration Testing</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Professional VAPT Services</h2>
+            <p class="text-center text-gray-400 mb-8">In today's threat landscape, a single vulnerability can cost a startup its reputation. Whether you are looking for a CERT-In certified security audit or a proactive OWASP Top 10 assessment, DualGuard CyberSEC ensures your code is production-ready.</p>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 <div class="vapt-item">
                     <div class="text-3xl mb-3">🌐</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Web App Security</h3>
-                    <p class="text-gray-300 text-sm">OWASP Top 10 compliance and advanced vulnerability detection</p>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Web Application Security Testing</h3>
+                    <p class="text-gray-300 text-sm">Deep-dive analysis into SQL Injection, XSS, and CSRF based on the latest OWASP Top 10 standards.</p>
                 </div>
                 <div class="vapt-item">
                     <div class="text-3xl mb-3">📱</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Mobile Security</h3>
-                    <p class="text-gray-300 text-sm">iOS and Android application security testing</p>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Mobile Application Security</h3>
+                    <p class="text-gray-300 text-sm">Identifying insecure storage, weak authentication, and reverse engineering risks for Android & iOS.</p>
                 </div>
                 <div class="vapt-item">
                     <div class="text-3xl mb-3">🔗</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">API Security</h3>
-                    <p class="text-gray-300 text-sm">RESTful and GraphQL API vulnerability assessment</p>
-                </div>
-                <div class="vapt-item">
-                    <div class="text-3xl mb-3">🌍</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Network Testing</h3>
-                    <p class="text-gray-300 text-sm">Infrastructure and network penetration testing</p>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">API Security Testing</h3>
+                    <p class="text-gray-300 text-sm">Assessing REST & GraphQL APIs for broken authorization and data exposure.</p>
                 </div>
                 <div class="vapt-item">
                     <div class="text-3xl mb-3">☁️</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Cloud Testing</h3>
-                    <p class="text-gray-300 text-sm">AWS, Azure, and GCP security assessment</p>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Cloud Security Testing</h3>
+                    <p class="text-gray-300 text-sm">Security audits for AWS, Azure, and GCP to prevent IAM misconfigurations and data leaks.</p>
                 </div>
                 <div class="vapt-item">
-                    <div class="text-3xl mb-3">🔌</div>
-                    <h3 class="text-xl font-bold text-cyan-400 mb-2">IoT Security</h3>
-                    <p class="text-gray-300 text-sm">Internet of Things device and protocol testing</p>
+                    <div class="text-3xl mb-3">🖥️</div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Network Security Testing</h3>
+                    <p class="text-gray-300 text-sm">Comprehensive internal and external penetration testing to harden your perimeter.</p>
+                </div>
+                <div class="vapt-item">
+                    <div class="text-3xl mb-3">📡</div>
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">IoT Security Testing</h3>
+                    <p class="text-gray-300 text-sm">Firmware analysis and hardware-level vulnerability assessments.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20 rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-3">Compliance & Certification Support</h3>
+                <p class="text-gray-300 mb-3">Ensure your business meets global and local regulatory standards. CERT-In empanelled standards, audit readiness for ISO 27001, SOC 2, and GDPR.</p>
+                <p class="text-gray-400 text-sm">Why DualGuard CyberSEC For VAPT? Attacker’s Mindset, Startup-Friendly Pricing, Expert-Led Reports, Zero False Positives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Managed Security & Audits -->
+    <section id="managed" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-glow">Managed Security & Audits</h2>
+            <p class="text-center text-gray-400 mb-8">Continuous Protection. Complete Compliance. DualGuard CyberSEC provides end-to-end Managed Security Services (MSSP) and Regulatory Audits to ensure your business remains resilient.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Managed SOC</h3>
+                    <p class="text-gray-300">24/7 Real-Time Monitoring, Proactive Threat Hunting, and Rapid Incident Response.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Strategic Compliance Audits</h3>
+                    <p class="text-gray-300">DPDP Act readiness, ISO 27001, SOC 2 Type II, PCI-DSS and specialized audits for banking & fintech.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">Continuous Vulnerability Management</h3>
+                    <p class="text-gray-300">Automated & manual scanning, prioritized remediation, and asset discovery to eliminate shadow IT.</p>
                 </div>
             </div>
         </div>
@@ -574,7 +370,12 @@
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="max-w-4xl mx-auto bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-cyan-500 border-opacity-40 rounded-xl p-8 sm:p-12">
             <h2 class="text-4xl font-bold text-center mb-4 text-glow">Contact Our Experts</h2>
-            <p class="text-center text-gray-400 mb-10">Request a free security assessment or consultation.</p>
+            <p class="text-center text-gray-400 mb-4">Request a free security assessment or consultation.</p>
+            <div class="text-center text-gray-300 mb-6">
+                <p><strong>Address:</strong> Pune, Maharashtra</p>
+                <p><strong>Phone:</strong> +91 9765549865 • <strong>Email:</strong> <a href="mailto:info@dualguardcybersec.com" class="hover:text-cyan-400">info@dualguardcybersec.com</a></p>
+                <p class="text-sm text-gray-400">Website: <a href="https://www.dualguardcybersec.com" class="hover:text-cyan-400">www.dualguardcybersec.com</a></p>
+            </div>
             
             <form class="space-y-6 fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -611,8 +412,8 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="text-2xl text-cyan-400">⚔️</div>
-                        <span class="text-lg font-bold">DualGuard CyberSec</span>
+                        <img src="./img/logo.png" alt="DualGuard CyberSec Logo" class="logo footer-logo">
+                        <span class="text-lg font-bold">DualGuard <span class="uppercase">CyberSec</span></span>
                     </div>
                     <p class="text-gray-400 text-sm mb-4">Advanced cybersecurity solutions for modern enterprises.</p>
                     <p class="text-gray-500 text-xs">Based in India • Serving Global Clients</p>
@@ -644,8 +445,8 @@
                 <div>
                     <h4 class="font-bold text-cyan-400 mb-4">Contact</h4>
                     <ul class="space-y-3 text-gray-400 text-sm">
-                        <li>📧 <a href="mailto:info@dualguard.io" class="hover:text-cyan-400 transition">info@dualguard.io</a></li>
-                        <li>📞 <a href="tel:+91-XXXXXXXXXX" class="hover:text-cyan-400 transition">+91 (XXX) XXX-XXXX</a></li>
+                        <li>📧 <a href="mailto:info@dualguardcybersec.com" class="hover:text-cyan-400 transition">info@dualguardcybersec.com</a></li>
+                        <li>📞 <a href="tel:+91-9765549865" class="hover:text-cyan-400 transition">+91 97655 49865</a></li>
                         <li class="space-x-4">
                             <a href="#" class="hover:text-cyan-400 transition">LinkedIn</a>
                             <a href="#" class="hover:text-cyan-400 transition">Twitter</a>
@@ -665,121 +466,11 @@
             </div>
         </div>
     </footer>
+    <!-- <img src="./DualGuardCyberSec Logo Combined (1).png" alt=""> -->
 
     <!-- JavaScript Animations -->
-    <script>
-        // Register ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Fade in elements on scroll
-        const fadeInElements = document.querySelectorAll('.service-card, .vapt-item, .partner-logo');
-        
-        fadeInElements.forEach((element) => {
-            gsap.fromTo(
-                element,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
-
-        // Animate section headings
-        const headings = document.querySelectorAll('h2');
-        headings.forEach((heading) => {
-            gsap.fromTo(
-                heading,
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
-
-        // Button hover animations
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach((button) => {
-            button.addEventListener('mouseenter', () => {
-                gsap.to(button, { scale: 1.05, duration: 0.2 });
-            });
-            button.addEventListener('mouseleave', () => {
-                gsap.to(button, { scale: 1, duration: 0.2 });
-            });
-        });
-
-        // Counter animation for stats (if needed)
-        function animateCounter(element, target) {
-            gsap.to(element, {
-                textContent: target,
-                duration: 2,
-                snap: { textContent: 1 },
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                }
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    gsap.to(window, {
-                        scrollTo: {
-                            y: target,
-                            autoKill: false
-                        },
-                        duration: 1
-                    });
-                }
-            });
-        });
-
-        // Parallax effect on hero section
-        const heroSection = document.querySelector('section:first-of-type');
-        gsap.to(heroSection, {
-            backgroundPosition: '0 100px',
-            ease: 'none',
-            scrollTrigger: {
-                trigger: heroSection,
-                scrub: true,
-                start: 'top top',
-                end: 'bottom top'
-            }
-        });
-
-        // Add scroll to top button functionality
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                // Add visible class to scroll-to-top button if it exists
-            }
-        });
-
-        // Initialize animations on page load
-        window.addEventListener('load', () => {
-            gsap.fromTo(
-                '.fade-in',
-                { opacity: 0 },
-                { opacity: 1, duration: 0.8 }
-            );
-        });
+    <script src="./script.js">
+      
     </script>
 </body>
 </html>
