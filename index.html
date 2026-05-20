@@ -16,6 +16,9 @@
 <body>
     <!-- Grid Background -->
     <div class="grid-bg"></div>
+    <div class="cursor-blob-layer" aria-hidden="true">
+        <div class="hero-cursor-glow"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-opacity-80 border-b border-cyan-500 border-opacity-20">
@@ -47,6 +50,14 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="hero-effects" aria-hidden="true">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-cursor-glow"></div>
+            <div class="hero-particles" id="hero-particles"></div>
+        </div>
+
         <!-- Scan Lines -->
         <div class="absolute inset-0 pointer-events-none">
             <div class="scan-line" style="animation-delay: 0s;"></div>

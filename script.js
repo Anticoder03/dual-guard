@@ -90,6 +90,110 @@
             }
         });
 
+        // Global cursor-follow blob + floating particles in the hero
+        const heroEffects = heroSection ? heroSection.querySelector('.hero-effects') : null;
+        const heroParticles = document.getElementById('hero-particles');
+        const cursorBlob = document.querySelector('.cursor-blob-layer .hero-cursor-glow');
+
+        if (cursorBlob) {
+            const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+            const particleCount = isCoarsePointer ? 10 : 18;
+            function createHeroParticles() {
+                if (!heroParticles) return;
+                heroParticles.innerHTML = '';
+
+                for (let i = 0; i < particleCount; i += 1) {
+                    const particle = document.createElement('span');
+                    particle.className = 'hero-particle';
+
+                    const size = 2 + Math.random() * 4;
+                    const left = Math.random() * 100;
+                    const top = Math.random() * 100;
+                    const driftX = (Math.random() * 140 - 70).toFixed(1) + 'px';
+                    const driftY = (Math.random() * 120 - 60).toFixed(1) + 'px';
+                    const delay = (Math.random() * 6).toFixed(2) + 's';
+                    const duration = (6 + Math.random() * 8).toFixed(2) + 's';
+
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${left}%`;
+                    particle.style.top = `${top}%`;
+                    particle.style.setProperty('--drift-x', driftX);
+                    particle.style.setProperty('--drift-y', driftY);
+                    particle.style.animationDelay = delay;
+                    particle.style.animationDuration = duration;
+
+                    heroParticles.appendChild(particle);
+                }
+            }
+
+            createHeroParticles();
+
+            gsap.set(cursorBlob, { xPercent: -50, yPercent: -50, x: window.innerWidth / 2, y: window.innerHeight / 2 });
+
+            const xTo = gsap.quickTo(cursorBlob, "x", { duration: 0.6, ease: "power3" });
+            const yTo = gsap.quickTo(cursorBlob, "y", { duration: 0.6, ease: "power3" });
+            const scaleTo = gsap.quickTo(cursorBlob, "scale", { duration: 0.4, ease: "power2" });
+
+            let lastX = window.innerWidth / 2;
+            let lastY = window.innerHeight / 2;
+            let isMoving = false;
+
+            const updatePosition = (clientX, clientY) => {
+                xTo(clientX);
+                yTo(clientY);
+                
+                const dx = clientX - lastX;
+                const dy = clientY - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                let scaleTarget = 1 + Math.min(distance * 0.005, 0.4);
+                scaleTo(scaleTarget);
+                
+                lastX = clientX;
+                lastY = clientY;
+                
+                cursorBlob.style.setProperty('--cursor-opacity', '1');
+                
+                clearTimeout(isMoving);
+                isMoving = setTimeout(() => scaleTo(1), 100);
+            };
+
+            document.addEventListener('pointermove', (event) => {
+                updatePosition(event.clientX, event.clientY);
+            });
+
+            document.addEventListener('pointerdown', (event) => {
+                updatePosition(event.clientX, event.clientY);
+                scaleTo(0.85);
+            });
+
+            document.addEventListener('pointerup', () => {
+                scaleTo(1.1);
+                setTimeout(() => scaleTo(1), 150);
+            });
+
+            document.addEventListener('pointerleave', () => {
+                cursorBlob.style.setProperty('--cursor-opacity', '0');
+            });
+
+            document.addEventListener('touchstart', (event) => {
+                const touch = event.touches && event.touches[0];
+                if (!touch) return;
+                updatePosition(touch.clientX, touch.clientY);
+            }, { passive: true });
+
+            document.addEventListener('touchmove', (event) => {
+                const touch = event.touches && event.touches[0];
+                if (!touch) return;
+                updatePosition(touch.clientX, touch.clientY);
+            }, { passive: true });
+
+            document.addEventListener('touchend', () => {
+                cursorBlob.style.setProperty('--cursor-opacity', '0');
+            }, { passive: true });
+        }
+
         // Add scroll to top button functionality
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
