@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Training | DualGuard CyberSec</title>
+    <meta name="description" content="Professional cybersecurity training programs - ethical hacking, SOC operations, cloud security, and DevSecOps.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <style>
+        :root{--glass:rgba(15,23,42,0.6)}.logo{height:42px;width:auto;display:block}
+        .hero-bg{background:linear-gradient(135deg,rgba(2,6,23,1),rgba(239,68,68,0.08),rgba(249,115,22,0.06),rgba(2,6,23,1));background-size:400% 400%;animation:gm 15s ease infinite}
+        @keyframes gm{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .float-orb{position:absolute;border-radius:9999px;opacity:.12;filter:blur(50px);animation:fo 10s ease-in-out infinite alternate}
+        .o1{width:350px;height:350px;background:#ef4444;left:-100px;top:-5%}.o2{width:280px;height:280px;background:#f97316;right:-60px;top:25%;animation-delay:-4s;animation-duration:12s}.o3{width:220px;height:220px;background:#eab308;left:35%;bottom:-60px;animation-delay:-7s;animation-duration:11s}
+        @keyframes fo{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-35px) scale(1.08)}}
+        .glass-card{background:rgba(15,23,42,0.5);backdrop-filter:blur(14px);border:1px solid rgba(239,68,68,0.2);box-shadow:0 8px 32px rgba(0,0,0,0.35)}
+        .card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(239,68,68,0.12);border-color:rgba(239,68,68,0.5)}
+        .transition-fast{transition:all .4s cubic-bezier(.175,.885,.32,1.275)}
+        .text-glow{text-shadow:0 0 20px rgba(6,182,212,0.4)}
+        .icon-hover i{transition:transform .3s ease,color .3s ease}.card-hover:hover .icon-hover i{transform:scale(1.15) rotate(5deg);color:#f87171}
+        .price-card{background:linear-gradient(135deg,rgba(15,23,42,0.7),rgba(30,41,59,0.5));border:1px solid rgba(239,68,68,0.15)}
+        .price-card:hover{border-color:rgba(239,68,68,0.5);box-shadow:0 0 40px rgba(239,68,68,0.08)}
+        .price-card.featured{border-color:rgba(239,68,68,0.5);background:linear-gradient(135deg,rgba(30,10,10,0.6),rgba(30,41,59,0.5))}
+    </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-gray-200 selection:bg-red-500 selection:text-white">
+    <header class="py-4 px-4 border-b border-cyan-500/20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./img/logo.png" alt="Logo" class="logo">
+                <h1 class="text-2xl font-bold text-glow">DualGuard <span class="text-cyan-400 uppercase">Cyber<span class="text-lime-300">Sec</span></span></h1>
+            </div>
+            <div id="nav-links" class="hidden md:flex gap-8 text-gray-300 items-center">
+                <div class="relative group">
+                    <button class="text-cyan-400 font-semibold transition flex items-center gap-1 cursor-pointer">Services <i class="fa-solid fa-chevron-down text-xs"></i></button>
+                    <div class="absolute left-0 mt-2 w-48 bg-slate-900 border border-cyan-500/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
+                        <div class="bg-slate-900 border border-cyan-500/20 rounded-lg overflow-hidden">
+                            <a href="index.html#services" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Overview</a>
+                            <a href="banking.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Banking</a>
+                            <a href="university.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">University</a>
+                            <a href="corporate.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Corporate</a>
+                            <a href="training.html" class="block px-4 py-2 text-sm text-cyan-400 bg-slate-800 font-semibold">Training</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="cloud-services.html" class="hover:text-cyan-400 transition">Cloud Services</a>
+                <a href="about.html" class="hover:text-cyan-400 transition">About Us</a>
+                <a href="blog.html" class="hover:text-cyan-400 transition">Blog</a>
+                <a href="index.html#why-us" class="hover:text-cyan-400 transition">Why Us</a>
+                <a href="index.html#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </div>
+            <button id="nav-toggle" class="md:hidden text-cyan-400 text-2xl">☰</button>
+            <div id="mobile-menu" class="hidden md:hidden absolute right-4 top-full mt-2 w-48 bg-slate-900 border border-cyan-500/30 rounded-lg py-2 flex-col space-y-1 px-3 shadow-xl z-50">
+                <div class="py-2 px-2 text-cyan-400 font-semibold border-b border-cyan-500/20 mb-1">Services</div>
+                <a href="index.html#services" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Overview</a>
+                <a href="banking.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Banking</a>
+                <a href="university.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- University</a>
+                <a href="corporate.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Corporate</a>
+                <a href="training.html" class="block py-1 px-4 text-sm text-cyan-400 font-semibold">- Training</a>
+                <a href="cloud-services.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400 mt-2 border-t border-cyan-500/20 pt-2">Cloud Services</a>
+                <a href="about.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">About Us</a>
+                <a href="blog.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Blog</a>
+                <a href="index.html#why-us" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Why Us</a>
+                <a href="index.html#contact" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative hero-bg overflow-hidden border-b border-red-500/20 min-h-[55vh] flex items-center">
+        <div class="float-orb o1"></div><div class="float-orb o2"></div><div class="float-orb o3"></div>
+        <div class="relative z-10 max-w-6xl mx-auto py-20 px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-900/40 border border-red-500/40 text-red-400 text-sm font-semibold mb-8">
+                <i class="fa-solid fa-chalkboard-user"></i> Professional Training
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 mb-6 tracking-tight">Cybersecurity Training</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Hands-on, researcher-led training programs to build job-ready security professionals and upskill enterprise teams.</p>
+            <div class="mt-10">
+                <a href="index.html#contact" class="inline-block px-8 py-4 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold rounded-lg hover:from-red-400 hover:to-orange-400 transition-all shadow-lg hover:shadow-red-500/30 transform hover:-translate-y-1">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto py-24 px-6 relative z-10">
+        <!-- Programs -->
+        <section class="mb-24">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-glow">Training Programs</h2>
+                <p class="text-gray-400 text-lg">Practical, lab-intensive courses designed by security researchers with real-world experience.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-skull-crossbones text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Offensive Security & Ethical Hacking</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">OWASP Top 10, advanced web & mobile hacking, hands-on labs with Burp Suite, Kali Linux, and Metasploit.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-red-950 text-red-400 rounded">40 Hours</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">Beginner-Advanced</span></div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-shield-halved text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Blue Team & SOC Operations</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">SIEM (Splunk/Wazuh), incident response lifecycles, log analysis, and proactive threat hunting labs.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-red-950 text-red-400 rounded">36 Hours</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">Intermediate</span></div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-cloud text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Cloud Security & DevSecOps</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">CSPM, container security, Zero Trust, and secure CI/CD pipeline practices for AWS, Azure, and GCP.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-red-950 text-red-400 rounded">32 Hours</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">Advanced</span></div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-mobile-screen text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mobile App VAPT</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Android & iOS reverse engineering, runtime analysis with Frida, and OWASP MASVS compliance testing.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-red-950 text-red-400 rounded">24 Hours</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">Intermediate</span></div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-robot text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">AI in Cybersecurity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Leverage AI/ML for threat detection, adversarial attacks on AI models, and prompt injection defense strategies.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-orange-950 text-orange-400 rounded">New 2026</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">All Levels</span></div>
+                </div>
+                <div class="glass-card p-8 rounded-2xl card-hover transition-fast">
+                    <div class="icon-hover bg-slate-900/60 p-4 rounded-xl w-14 h-14 flex items-center justify-center mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-code text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">API Security Deep-Dive</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">REST & GraphQL security testing, broken authorization attacks, rate limiting bypass, and secure API design patterns.</p>
+                    <div class="flex gap-2 flex-wrap"><span class="text-xs px-2 py-1 bg-orange-950 text-orange-400 rounded">New 2026</span><span class="text-xs px-2 py-1 bg-slate-800 text-gray-400 rounded">Intermediate</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Modes -->
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-glow">Flexible Delivery</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="price-card p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="fa-solid fa-laptop text-red-400 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Online Instructor-Led</h4>
+                    <p class="text-gray-400 text-sm">Live virtual classes with hands-on labs. Flexible schedules for working professionals.</p>
+                </div>
+                <div class="price-card featured p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="fa-solid fa-building text-red-400 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">On-Campus Workshops</h4>
+                    <p class="text-gray-400 text-sm">In-person training at your campus or office. Customized curriculum for your team's needs.</p>
+                </div>
+                <div class="price-card p-8 rounded-2xl text-center transition-all duration-300">
+                    <i class="fa-solid fa-fire text-red-400 text-3xl mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Intensive Bootcamps</h4>
+                    <p class="text-gray-400 text-sm">Week-long immersive programs for rapid skill building. Certification prep included.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="mb-12">
+            <div class="glass-card p-12 rounded-3xl text-center border-red-500/20 bg-gradient-to-br from-slate-900 to-slate-950">
+                <h2 class="text-3xl font-bold mb-4 text-white">Start your cybersecurity journey</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Contact us for batch schedules, corporate training packages, or custom curriculum design.</p>
+                <a href="index.html#contact" class="inline-block px-8 py-4 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold rounded-lg hover:from-red-400 hover:to-orange-400 transition-all shadow-lg hover:shadow-red-500/30 transform hover:-translate-y-1">Enquire Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-cyan-500/20 bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div><div class="flex items-center gap-2 mb-4"><img src="./img/logo.png" alt="Logo" class="logo footer-logo"><span class="text-lg font-bold">DualGuard <span class="uppercase text-cyan-400">Cyber<span class="text-lime-300">Sec</span></span></span></div><p class="text-gray-400 text-sm mb-4">Advanced cybersecurity solutions for modern enterprises.</p><p class="text-gray-500 text-xs">Based in India • Serving Global Clients</p></div>
+                <div><h4 class="font-bold text-white mb-4">Services</h4><ul class="space-y-2 text-gray-400 text-sm"><li><a href="cloud-services.html" class="hover:text-cyan-400 transition">Cloud Security</a></li><li><a href="index.html#vapt" class="hover:text-cyan-400 transition">VAPT Services</a></li><li><a href="index.html#services" class="hover:text-cyan-400 transition">Managed Security</a></li><li><a href="corporate.html" class="hover:text-cyan-400 transition">Consulting</a></li></ul></div>
+                <div><h4 class="font-bold text-white mb-4">Resources</h4><ul class="space-y-2 text-gray-400 text-sm"><li><a href="blog.html" class="hover:text-cyan-400 transition">Security Blog</a></li><li><a href="#" class="hover:text-cyan-400 transition">Whitepapers</a></li><li><a href="#" class="hover:text-cyan-400 transition">Case Studies</a></li><li><a href="#" class="hover:text-cyan-400 transition">Documentation</a></li></ul></div>
+                <div><h4 class="font-bold text-white mb-4">Contact</h4><ul class="space-y-3 text-gray-400 text-sm"><li><i class="fa-regular fa-envelope text-cyan-400"></i> <a href="mailto:info@dualguardcybersec.com" class="hover:text-cyan-400 transition ml-2">info@dualguardcybersec.com</a></li><li><i class="fa-solid fa-phone text-cyan-400"></i> <a href="tel:+91-9765549865" class="hover:text-cyan-400 transition ml-2">+91 97655 49865</a></li><li class="space-x-4 pt-2"><a href="https://www.linkedin.com/in/dualguardcybersec/" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 inline-flex items-center justify-center hover:bg-cyan-500 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://x.com/dualguardcybers" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 inline-flex items-center justify-center hover:bg-cyan-500 hover:text-white transition"><i class="fa-brands fa-twitter"></i></a></li></ul></div>
+            </div>
+            <div class="border-t border-cyan-500/20 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <p>&copy; 2024 DualGuard CyberSec. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0"><a href="#" class="hover:text-cyan-400 transition">Privacy Policy</a><a href="#" class="hover:text-cyan-400 transition">Terms of Service</a><a href="#" class="hover:text-cyan-400 transition">Compliance</a></div>
+            </div>
+        </div>
+    </footer>
+    <script>const t=document.getElementById('nav-toggle'),m=document.getElementById('mobile-menu');if(t&&m){t.addEventListener('click',()=>{m.classList.toggle('hidden');m.classList.toggle('flex');})}</script>
+</body>
+</html>

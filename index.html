@@ -27,18 +27,38 @@
                 </div>
                 
             </div>
-            <div id="nav-links" class="hidden md:flex gap-8 text-gray-300">
-                <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+            <div id="nav-links" class="hidden md:flex gap-8 text-gray-300 items-center">
+                <div class="relative group">
+                    <button class="hover:text-cyan-400 transition flex items-center gap-1 cursor-pointer">Services <i class="fa-solid fa-chevron-down text-xs"></i></button>
+                    <div class="absolute left-0 mt-2 w-48 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
+                        <div class="bg-slate-900 border border-cyan-500 border-opacity-20 rounded-lg overflow-hidden">
+                            <a href="#services" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Overview</a>
+                            <a href="banking.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Banking</a>
+                            <a href="university.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">University</a>
+                            <a href="corporate.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Corporate</a>
+                            <a href="training.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Training</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="cloud-services.html" class="hover:text-cyan-400 transition">Cloud Services</a>
                 <a href="about.html" class="hover:text-cyan-400 transition">About Us</a>
+                <a href="blog.html" class="hover:text-cyan-400 transition">Blog</a>
                 <a href="#why-us" class="hover:text-cyan-400 transition">Why Us</a>
                 <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
             </div>
             <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-cyan-400">☰</button>
 
             <!-- Mobile dropdown menu (hidden by default) -->
-            <div id="mobile-menu" class="hidden md:hidden absolute right-4 top-full mt-2 w-44 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg py-2 flex-col space-y-1 px-3">
-                <a href="#services" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Services</a>
+            <div id="mobile-menu" class="hidden md:hidden absolute right-4 top-full mt-2 w-48 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg py-2 flex-col space-y-1 px-3 shadow-xl z-50">
+                <div class="block py-2 px-2 text-cyan-400 font-semibold border-b border-cyan-500 border-opacity-20 mb-1">Services</div>
+                <a href="#services" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Overview</a>
+                <a href="banking.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Banking</a>
+                <a href="university.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- University</a>
+                <a href="corporate.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Corporate</a>
+                <a href="training.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Training</a>
+                <a href="cloud-services.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400 mt-2 border-t border-cyan-500 border-opacity-20 pt-2">Cloud Services</a>
                 <a href="about.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">About Us</a>
+                <a href="blog.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Blog</a>
                 <a href="#vapt" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">VAPT</a>
                 <a href="#why-us" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Why Us</a>
                 <a href="#contact" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Contact</a>
@@ -68,9 +88,9 @@
                 Our approach is unique: we protect your critical assets by combining an attacker’s mindset with a researcher’s precision. From proactive IT Security Support to deep-dive vulnerability research, we ensure your infrastructure is not just compliant, but truly secure.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="btn-glow px-8 py-4 bg-red-600 text-white font-bold rounded-lg text-lg transition">
+                <a href="#contact" class="btn-glow px-8 py-4 bg-red-600 text-white font-bold rounded-lg text-lg transition">
                     Get Free Security Audit
-                </button>
+                </a>
                 <a href="#services" class="btn-secondary btn-glow px-8 py-4 text-cyan-400 font-bold rounded-lg text-lg">
                     Explore Services
                 </a>

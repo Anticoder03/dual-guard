@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | DualGuard CyberSec</title>
+    <meta name="description" content="Cybersecurity insights, threat research, and news from DualGuard CyberSec.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <style>
+        :root{--glass: rgba(15,23,42,0.6);}
+        .logo{height:42px;width:auto;display:block}
+
+        /* Ambient background for blog */
+        .ambient-bg {
+            background-color: #020617;
+            background-image: radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+        }
+
+        /* Premium Glassmorphism Cards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.1);
+        }
+        .blog-card:hover .blog-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .transition-fast{transition:all .3s ease-out}
+
+        /* Text Glow */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+        
+        .blog-img-wrapper {
+            overflow: hidden;
+            border-top-left-radius: 0.9rem;
+            border-top-right-radius: 0.9rem;
+        }
+        .blog-img-wrapper img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+        .blog-card:hover .blog-img-wrapper img {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen ambient-bg text-gray-200 selection:bg-cyan-500 selection:text-white">
+    <!-- Header/Nav identical to the premium nav we built -->
+    <header class="py-4 px-4 border-b border-cyan-500 border-opacity-20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./img/logo.png" alt="Logo" class="logo">
+                <h1 class="text-2xl font-bold text-glow">DualGuard <span class="text-cyan-400 uppercase">Cyber<span class="text-lime-300">Sec</span></span></h1>
+            </div>
+            
+            <div id="nav-links" class="hidden md:flex gap-8 text-gray-300 items-center">
+                <div class="relative group">
+                    <button class="hover:text-cyan-400 transition flex items-center gap-1 cursor-pointer">Services <i class="fa-solid fa-chevron-down text-xs"></i></button>
+                    <div class="absolute left-0 mt-2 w-48 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
+                        <div class="bg-slate-900 border border-cyan-500 border-opacity-20 rounded-lg overflow-hidden">
+                            <a href="index.html#services" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Overview</a>
+                            <a href="banking.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Banking</a>
+                            <a href="university.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">University</a>
+                            <a href="corporate.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Corporate</a>
+                            <a href="training.html" class="block px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-slate-800">Training</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="cloud-services.html" class="hover:text-cyan-400 transition">Cloud Services</a>
+                <a href="about.html" class="hover:text-cyan-400 transition">About Us</a>
+                <a href="blog.html" class="font-semibold text-cyan-400 transition">Blog</a>
+                <a href="index.html#why-us" class="hover:text-cyan-400 transition">Why Us</a>
+                <a href="index.html#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </div>
+            
+            <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-cyan-400 text-2xl">☰</button>
+
+            <!-- Mobile dropdown menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute right-4 top-full mt-2 w-48 bg-slate-900 border border-cyan-500 border-opacity-30 rounded-lg py-2 flex-col space-y-1 px-3 shadow-xl z-50">
+                <div class="block py-2 px-2 text-cyan-400 font-semibold border-b border-cyan-500 border-opacity-20 mb-1">Services</div>
+                <a href="index.html#services" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Overview</a>
+                <a href="banking.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Banking</a>
+                <a href="university.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- University</a>
+                <a href="corporate.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Corporate</a>
+                <a href="training.html" class="block py-1 px-4 text-sm text-gray-300 hover:text-cyan-400">- Training</a>
+                <a href="cloud-services.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400 mt-2 border-t border-cyan-500 border-opacity-20 pt-2">Cloud Services</a>
+                <a href="about.html" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">About Us</a>
+                <a href="blog.html" class="block py-2 px-2 text-cyan-400 font-semibold">Blog</a>
+                <a href="index.html#vapt" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">VAPT</a>
+                <a href="index.html#why-us" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Why Us</a>
+                <a href="index.html#contact" class="block py-2 px-2 text-gray-300 hover:text-cyan-400">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="max-w-7xl mx-auto py-16 px-6 relative z-10 border-b border-cyan-500/20 mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-glow">Security Insights & News</h1>
+        <p class="text-xl text-gray-400 max-w-2xl">Expert analysis, threat intelligence, and the latest trends in the cybersecurity landscape.</p>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-6 relative z-10 pb-24">
+        
+        <!-- Blog Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Post 1 -->
+            <article class="glass-card rounded-2xl blog-card transition-fast flex flex-col h-full">
+                <div class="blog-img-wrapper bg-slate-800">
+                    <!-- Placeholder using a gradient since no image is provided -->
+                    <div class="w-full h-[200px] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <i class="fa-solid fa-cloud text-5xl text-cyan-500/30"></i>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-3 text-xs text-cyan-400 font-semibold mb-3">
+                        <span class="px-2 py-1 bg-cyan-950 rounded">Cloud Security</span>
+                        <span class="text-gray-500">Oct 12, 2024</span>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 text-white leading-snug">The Hidden Risks of Multi-Cloud Architectures</h2>
+                    <p class="text-gray-400 text-sm mb-6 flex-1 line-clamp-3">As organizations adopt multi-cloud strategies to avoid vendor lock-in, they inadvertently expand their attack surface. Learn how to maintain unified visibility and secure identity management across AWS, Azure, and GCP.</p>
+                    <a href="#" class="text-cyan-400 text-sm font-bold hover:text-cyan-300 flex items-center gap-2 group">Read Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="glass-card rounded-2xl blog-card transition-fast flex flex-col h-full">
+                <div class="blog-img-wrapper bg-slate-800">
+                    <div class="w-full h-[200px] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <i class="fa-solid fa-shield-virus text-5xl text-purple-500/30"></i>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-3 text-xs text-purple-400 font-semibold mb-3">
+                        <span class="px-2 py-1 bg-purple-950 rounded">Threat Intel</span>
+                        <span class="text-gray-500">Oct 05, 2024</span>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 text-white leading-snug">Ransomware as a Service: The Evolution of Digital Extortion</h2>
+                    <p class="text-gray-400 text-sm mb-6 flex-1 line-clamp-3">RaaS operators are becoming more sophisticated, targeting mid-sized businesses with double-extortion tactics. Discover the latest TTPs identified by our SOC analysts and how to build a resilient defense.</p>
+                    <a href="#" class="text-cyan-400 text-sm font-bold hover:text-cyan-300 flex items-center gap-2 group">Read Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="glass-card rounded-2xl blog-card transition-fast flex flex-col h-full">
+                <div class="blog-img-wrapper bg-slate-800">
+                    <div class="w-full h-[200px] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <i class="fa-solid fa-code text-5xl text-emerald-500/30"></i>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-3 text-xs text-emerald-400 font-semibold mb-3">
+                        <span class="px-2 py-1 bg-emerald-950 rounded">VAPT</span>
+                        <span class="text-gray-500">Sep 28, 2024</span>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 text-white leading-snug">Securing REST APIs in 2024: Moving Beyond OWASP Top 10</h2>
+                    <p class="text-gray-400 text-sm mb-6 flex-1 line-clamp-3">Broken Object Level Authorization (BOLA) remains a critical threat to API security. Our pentesting team shares practical code-level examples of how attackers exploit BOLA and how developers can prevent it.</p>
+                    <a href="#" class="text-cyan-400 text-sm font-bold hover:text-cyan-300 flex items-center gap-2 group">Read Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="glass-card rounded-2xl blog-card transition-fast flex flex-col h-full">
+                <div class="blog-img-wrapper bg-slate-800">
+                    <div class="w-full h-[200px] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <i class="fa-solid fa-user-shield text-5xl text-blue-500/30"></i>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-3 text-xs text-blue-400 font-semibold mb-3">
+                        <span class="px-2 py-1 bg-blue-950 rounded">Zero Trust</span>
+                        <span class="text-gray-500">Sep 15, 2024</span>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 text-white leading-snug">A Practical Guide to Implementing Zero Trust Network Access</h2>
+                    <p class="text-gray-400 text-sm mb-6 flex-1 line-clamp-3">Transitioning from legacy VPNs to ZTNA doesn't have to be disruptive. This guide outlines a phased approach to implementing Zero Trust principles across your remote workforce.</p>
+                    <a href="#" class="text-cyan-400 text-sm font-bold hover:text-cyan-300 flex items-center gap-2 group">Read Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </article>
+
+             <!-- Post 5 -->
+            <article class="glass-card rounded-2xl blog-card transition-fast flex flex-col h-full">
+                <div class="blog-img-wrapper bg-slate-800">
+                    <div class="w-full h-[200px] bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
+                        <i class="fa-solid fa-file-contract text-5xl text-orange-500/30"></i>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-3 text-xs text-orange-400 font-semibold mb-3">
+                        <span class="px-2 py-1 bg-orange-950 rounded">Compliance</span>
+                        <span class="text-gray-500">Sep 02, 2024</span>
+                    </div>
+                    <h2 class="text-xl font-bold mb-3 text-white leading-snug">Navigating the New DPDP Act: What Indian Enterprises Need to Know</h2>
+                    <p class="text-gray-400 text-sm mb-6 flex-1 line-clamp-3">The Digital Personal Data Protection Act brings strict new requirements for data fiduciaries. We break down the technical implications and how your security posture must adapt to ensure compliance.</p>
+                    <a href="#" class="text-cyan-400 text-sm font-bold hover:text-cyan-300 flex items-center gap-2 group">Read Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Pagination (Static for UI) -->
+        <div class="mt-16 flex justify-center gap-2">
+            <button class="w-10 h-10 rounded-lg border border-cyan-500/30 bg-slate-900/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500 flex items-center justify-center transition-colors"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+            <button class="w-10 h-10 rounded-lg bg-cyan-500 text-white font-bold flex items-center justify-center">1</button>
+            <button class="w-10 h-10 rounded-lg border border-cyan-500/30 bg-slate-900/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500 flex items-center justify-center transition-colors font-semibold">2</button>
+            <button class="w-10 h-10 rounded-lg border border-cyan-500/30 bg-slate-900/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500 flex items-center justify-center transition-colors font-semibold">3</button>
+            <span class="px-2 py-2 text-gray-500">...</span>
+            <button class="w-10 h-10 rounded-lg border border-cyan-500/30 bg-slate-900/50 text-gray-400 hover:text-cyan-400 hover:border-cyan-500 flex items-center justify-center transition-colors"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+        </div>
+
+    </main>
+
+    <!-- Footer identical to about.html -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-cyan-500 border-opacity-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="./img/logo.png" alt="DualGuard CyberSec Logo" class="logo footer-logo">
+                        <span class="text-lg font-bold">DualGuard <span class="uppercase text-cyan-400">Cyber<span class="text-lime-300">Sec</span></span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Advanced cybersecurity solutions for modern enterprises.</p>
+                    <p class="text-gray-500 text-xs">Based in India • Serving Global Clients</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="cloud-services.html" class="hover:text-cyan-400 transition">Cloud Security</a></li>
+                        <li><a href="index.html#vapt" class="hover:text-cyan-400 transition">VAPT Services</a></li>
+                        <li><a href="index.html#services" class="hover:text-cyan-400 transition">Managed Security</a></li>
+                        <li><a href="corporate.html" class="hover:text-cyan-400 transition">Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="blog.html" class="hover:text-cyan-400 transition">Security Blog</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Whitepapers</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><i class="fa-regular fa-envelope text-cyan-400"></i> <a href="mailto:info@dualguardcybersec.com" class="hover:text-cyan-400 transition ml-2">info@dualguardcybersec.com</a></li>
+                        <li><i class="fa-solid fa-phone text-cyan-400"></i> <a href="tel:+91-9765549865" class="hover:text-cyan-400 transition ml-2">+91 97655 49865</a></li>
+                        <li class="space-x-4 pt-2">
+                            <a href="https://www.linkedin.com/in/dualguardcybersec/" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-cyan-500 hover:text-white transition inline-flex"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://x.com/dualguardcybers" target="_blank" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-cyan-500 hover:text-white transition inline-flex"><i class="fa-brands fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-cyan-500 border-opacity-20 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <p>&copy; 2024 DualGuard CyberSec. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-cyan-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-cyan-400 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-cyan-400 transition">Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(navToggle && mobileMenu) {
+            navToggle.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if(isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
