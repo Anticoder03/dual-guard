@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | DualGuard CyberSec</title>
+    <meta name="description" content="About DualGuard CyberSec - mission, team and values.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <style>
+        :root{--glass: rgba(15,23,42,0.6);}
+        .logo{height:42px;width:auto;display:block}
+
+        /* Animated gradient background for hero */
+        .hero-bg{
+            background: linear-gradient(115deg, rgba(14,165,233,0.08), rgba(124,58,237,0.06), rgba(16,185,129,0.06));
+            background-size:300% 300%;
+            animation:gradientMove 12s ease infinite;
+        }
+        @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        /* Floating circles */
+        .float-circle{position:absolute;border-radius:9999px;opacity:.12;filter:blur(18px);animation:floatUp 8s linear infinite}
+        .c1{width:240px;height:240px;background:#06b6d4;left:-60px;top:8%}
+        .c2{width:160px;height:160px;background:#7c3aed;right:-40px;top:28%;animation-duration:10s}
+        .c3{width:120px;height:120px;background:#10b981;left:18%;bottom:-60px;animation-duration:9s}
+        @keyframes floatUp{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-18px) translateX(6px)}100%{transform:translateY(0) translateX(0)}}
+
+        /* Card hover */
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+        .transition-fast{transition:transform .25s ease,box-shadow .25s ease}
+
+        /* Small responsive tweaks */
+        @media (max-width:767px){.c1,.c2,.c3{display:none}}
+    </style>
+</head>
+<body class="min-h-screen bg-slate-900 text-gray-200">
+    <header class="py-6 px-4 border-b border-cyan-500 border-opacity-20 bg-transparent">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./img/logo.png" alt="Logo" class="logo">
+                <h1 class="text-2xl font-bold">DualGuard CyberSec</h1>
+            </div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="index.html" class="hover:text-cyan-400">Home</a>
+                <a href="about.html" class="font-semibold text-cyan-400">About</a>
+                <a href="index.html#services" class="hover:text-cyan-400">Services</a>
+                <a href="index.html#contact" class="hover:text-cyan-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative hero-bg overflow-hidden">
+        <div class="float-circle c1"></div>
+        <div class="float-circle c2"></div>
+        <div class="float-circle c3"></div>
+        <div class="relative z-10 max-w-6xl mx-auto py-24 px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">ABOUT US</h1>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto">Learn about our mission, vision and values — how we protect organisations with research-led cybersecurity.</p>
+            <div class="mt-6">
+                <a href="index.html#services" class="inline-block px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-5xl mx-auto py-16 px-6">
+        <section class="mb-8 text-center">
+            <h2 class="text-4xl font-bold mb-4 text-glow">About DualGuard CyberSec</h2>
+            <p class="text-gray-300 max-w-3xl mx-auto">DualGuard CyberSec provides enterprise-grade cloud security, VAPT, and managed SOC services. Our team combines attacker-style thinking with rigorous research to secure fast-moving products and critical infrastructure. We partner with leading vendors and provide tailored programs for startups and enterprises.</p>
+        </section>
+
+        <!-- Cards: Who We Are / Vision / Mission -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-glow">What We Are</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-users text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold text-cyan-400">Who We Are</h4>
+                    </div>
+                    <p class="text-gray-300">CyberNX is one of the fastest growing Cybersecurity company with a dynamic team of over 100+ cybersecurity practitioners dedicated to safeguarding businesses against digital threats. With a strong commitment to security excellence, attention to detail and adaptability.</p>
+                </div>
+
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-eye text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold text-cyan-400">Our Vision</h4>
+                    </div>
+                    <p class="text-gray-300">To be a cybersecurity partner of choice and to build a team that empowers our customers in their digital journeys by setting new benchmarks through constant innovation, implementing proactive defence strategies, and protecting our customers from cyber adversaries.</p>
+                </div>
+
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-40 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-bullseye text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold text-cyan-400">Our Mission</h4>
+                    </div>
+                    <p class="text-gray-300">Our mission is to provide cutting-edge Cybersecurity solutions and services to our customers designed to fortify defences against sophisticated attacks and data breaches, and align with regulatory and global standards compliance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-2 text-glow">Our Values</h3>
+            <p class="text-gray-400 mb-6">We are driven by our core values</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-handshake-simple text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold">Integrity</h4>
+                    </div>
+                    <p class="text-gray-300">We uphold the highest standards of integrity and transparency in all our dealings.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-star text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold">Excellence</h4>
+                    </div>
+                    <p class="text-gray-300">We are committed to delivering exceptional Cybersecurity services and solutions.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 card-hover transition-fast">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-lightbulb text-cyan-400 text-2xl"></i>
+                        <h4 class="text-xl font-bold">Innovation</h4>
+                    </div>
+                    <p class="text-gray-300">We continuously innovate to tailor our solution as per customer needs &amp; challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-glow">Testimonials</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <blockquote class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 text-gray-300">
+                    <p class="mb-4">“DualGuard helped us close critical vulnerabilities before our product launch. Their team was thorough, fast, and provided actionable remediation guidance.”</p>
+                    <footer class="text-sm text-gray-400">— Priya Sharma, CTO, FinTech Startup</footer>
+                </blockquote>
+
+                <blockquote class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 text-gray-300">
+                    <p class="mb-4">“Their managed SOC gave us 24/7 confidence. Response times improved dramatically and their reports are clear and practical.”</p>
+                    <footer class="text-sm text-gray-400">— Rajiv Menon, Head of IT, E-commerce</footer>
+                </blockquote>
+
+                <blockquote class="p-6 rounded-lg bg-slate-900 bg-opacity-30 border border-cyan-500 border-opacity-20 text-gray-300">
+                    <p class="mb-4">“Excellent VAPT engagement — comprehensive, well-documented, and focused on fixing what matters most.”</p>
+                    <footer class="text-sm text-gray-400">— Ananya Gupta, Security Lead, Healthcare.</footer>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-cyan-500 border-opacity-20 bg-gradient-to-b from-transparent to-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="./img/logo.png" alt="DualGuard CyberSec Logo" class="logo footer-logo">
+                        <span class="text-lg font-bold">DualGuard <span class="uppercase">CyberSec</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Advanced cybersecurity solutions for modern enterprises.</p>
+                    <p class="text-gray-500 text-xs">Based in India • Serving Global Clients</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-cyan-400 mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html#services" class="hover:text-cyan-400 transition">Cloud Security</a></li>
+                        <li><a href="index.html#vapt" class="hover:text-cyan-400 transition">VAPT Services</a></li>
+                        <li><a href="index.html#services" class="hover:text-cyan-400 transition">Managed Security</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Consulting</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-bold text-cyan-400 mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Security Blog</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Whitepapers</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-cyan-400 mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><i class="fa-regular fa-envelope"></i> <a href="mailto:info@dualguardcybersec.com" class="hover:text-cyan-400 transition">info@dualguardcybersec.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+91-9765549865" class="hover:text-cyan-400 transition">+91 97655 49865</a></li>
+                        <li class="space-x-4">
+                            <a href="https://www.linkedin.com/in/dualguardcybersec/" target="_blank" class="hover:text-cyan-400 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://x.com/dualguardcybers" target="_blank" class="hover:text-cyan-400 transition"><i class="fa-brands fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-cyan-500 border-opacity-20 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <p>&copy; 2024 DualGuard CyberSec. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-cyan-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-cyan-400 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-cyan-400 transition">Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
