@@ -1,143 +1,143 @@
-  // Register ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-        // Fade in elements on scroll
-        const fadeInElements = document.querySelectorAll('.service-card, .vapt-item, .partner-logo');
-        
-        fadeInElements.forEach((element) => {
-            gsap.fromTo(
-                element,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
+// Fade in elements on scroll
+const fadeInElements = document.querySelectorAll('.service-card, .vapt-item, .partner-logo');
 
-        // Animate section headings
-        const headings = document.querySelectorAll('h2');
-        headings.forEach((heading) => {
-            gsap.fromTo(
-                heading,
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-        });
-
-        // Button hover animations
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach((button) => {
-            button.addEventListener('mouseenter', () => {
-                gsap.to(button, { scale: 1.05, duration: 0.2 });
-            });
-            button.addEventListener('mouseleave', () => {
-                gsap.to(button, { scale: 1, duration: 0.2 });
-            });
-        });
-
-        // Counter animation for stats (if needed)
-        function animateCounter(element, target) {
-            gsap.to(element, {
-                textContent: target,
-                duration: 2,
-                snap: { textContent: 1 },
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                }
-            });
-        }
-
-        // Smooth scroll for anchor links — use native smooth scroll and ignore empty hashes
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (!href || href === '#') return; // ignore empty/hash-only links
-                const target = document.querySelector(href);
-                if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Parallax effect on hero section
-        const heroSection = document.querySelector('section:first-of-type');
-        gsap.to(heroSection, {
-            backgroundPosition: '0 100px',
-            ease: 'none',
+fadeInElements.forEach((element) => {
+    gsap.fromTo(
+        element,
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
             scrollTrigger: {
-                trigger: heroSection,
-                scrub: true,
-                start: 'top top',
-                end: 'bottom top'
+                trigger: element,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
             }
-        });
-
-        // Add scroll to top button functionality
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                // Add visible class to scroll-to-top button if it exists
-            }
-        });
-
-        // Initialize animations on page load
-        window.addEventListener('load', () => {
-            gsap.fromTo(
-                '.fade-in',
-                { opacity: 0 },
-                { opacity: 1, duration: 0.8 }
-            );
-        });
-
-        // Mobile nav toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (navToggle && mobileMenu) {
-            navToggle.addEventListener('click', function () {
-                const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', String(!isOpen));
-                mobileMenu.classList.toggle('hidden');
-                // toggle button icon
-                navToggle.textContent = isOpen ? '☰' : '✕';
-            });
-
-            // Close mobile menu when a mobile link is clicked
-            mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggle.textContent = '☰';
-                });
-            });
         }
+    );
+});
+
+// Animate section headings
+const headings = document.querySelectorAll('h2');
+headings.forEach((heading) => {
+    gsap.fromTo(
+        heading,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: heading,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        }
+    );
+});
+
+// Button hover animations
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('mouseenter', () => {
+        gsap.to(button, { scale: 1.05, duration: 0.2 });
+    });
+    button.addEventListener('mouseleave', () => {
+        gsap.to(button, { scale: 1, duration: 0.2 });
+    });
+});
+
+// Counter animation for stats (if needed)
+function animateCounter(element, target) {
+    gsap.to(element, {
+        textContent: target,
+        duration: 2,
+        snap: { textContent: 1 },
+        scrollTrigger: {
+            trigger: element,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+}
+
+// Smooth scroll for anchor links — use native smooth scroll and ignore empty hashes
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return; // ignore empty/hash-only links
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// Parallax effect on hero section
+const heroSection = document.querySelector('section:first-of-type');
+gsap.to(heroSection, {
+    backgroundPosition: '0 100px',
+    ease: 'none',
+    scrollTrigger: {
+        trigger: heroSection,
+        scrub: true,
+        start: 'top top',
+        end: 'bottom top'
+    }
+});
+
+// Add scroll to top button functionality
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        // Add visible class to scroll-to-top button if it exists
+    }
+});
+
+// Initialize animations on page load
+window.addEventListener('load', () => {
+    gsap.fromTo(
+        '.fade-in',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8 }
+    );
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', function () {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+        mobileMenu.classList.toggle('hidden');
+        // toggle button icon
+        navToggle.textContent = isOpen ? '☰' : '✕';
+    });
+
+    // Close mobile menu when a mobile link is clicked
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.textContent = '☰';
+        });
+    });
+}
 
 
 // Partner logos data (images optional) — populate the partner-track
 const trusted_companies = [
-    {name: "Netskope", logo: "./img/Netskope.png"},
-    {name: "CrowdStrike", logo: "./img/CrowdStrike.png"},
-    {name: "Cloudflare", logo: "./img/cloudflare.png"},
-    {name: "AWS", logo: "./img/aws.svg"},
-    {name: "Reinfosec", logo: "./img/Reinfosec.png"},
-    {name: "K-NEXTGENTECH", logo: "./img/k_nextgentech.jpg"},
-    {name: "Xploreteq", logo: "./img/Xploreteq.jpeg"}
+    { name: "Netskope", logo: "./img/Netskope.png" },
+    { name: "CrowdStrike", logo: "./img/CrowdStrike.png" },
+    { name: "Cloudflare", logo: "./img/cloudflare.png" },
+    { name: "AWS", logo: "./img/aws.svg" },
+    { name: "Reinfosec", logo: "./img/Reinfosec.png" },
+    { name: "K-NEXTGENTECH", logo: "./img/k_nextgentech.jpg" },
+    { name: "Xploreteq", logo: "./img/Xploreteq.jpeg" }
 ];
 
 const partnerSlider = document.getElementById('trusted-companies');
@@ -263,21 +263,21 @@ if (partnerTrack) {
     // ── Resize ──
     function resize() {
         const section = canvas.closest('section');
-        W = canvas.width  = section.offsetWidth;
+        W = canvas.width = section.offsetWidth;
         H = canvas.height = section.offsetHeight;
     }
     resize();
     window.addEventListener('resize', () => { resize(); buildNodes(); });
 
     // ── Config ──
-    const NODE_COUNT   = 60;
-    const CONN_DIST    = 160;
+    const NODE_COUNT = 60;
+    const CONN_DIST = 160;
     const PULSE_CHANCE = 0.004;
-    const NODE_SPEED   = 0.25;
+    const NODE_SPEED = 0.25;
 
-    const CYAN   = { r: 0,   g: 229, b: 255 };
-    const RED    = { r: 255, g: 45,  b: 45  };
-    const GREEN  = { r: 124, g: 252, b: 0   };
+    const CYAN = { r: 0, g: 229, b: 255 };
+    const RED = { r: 255, g: 45, b: 45 };
+    const GREEN = { r: 124, g: 252, b: 0 };
 
     function rgba(c, a) { return `rgba(${c.r},${c.g},${c.b},${a})`; }
 
@@ -286,11 +286,11 @@ if (partnerTrack) {
 
     function buildNodes() {
         nodes = Array.from({ length: NODE_COUNT }, () => ({
-            x:  Math.random() * W,
-            y:  Math.random() * H,
+            x: Math.random() * W,
+            y: Math.random() * H,
             vx: (Math.random() - 0.5) * NODE_SPEED,
             vy: (Math.random() - 0.5) * NODE_SPEED,
-            r:  1 + Math.random() * 1.8,
+            r: 1 + Math.random() * 1.8,
             col: Math.random() < 0.7 ? CYAN : Math.random() < 0.5 ? RED : GREEN,
             pulse: 0,
             pulseDir: 1
@@ -329,8 +329,8 @@ if (partnerTrack) {
         ctx.beginPath();
         for (let i = 0; i < 6; i++) {
             const a = (Math.PI / 3) * i;
-            i === 0 ? ctx.moveTo(Math.cos(a)*r, Math.sin(a)*r)
-                    : ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
+            i === 0 ? ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r)
+                : ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
         }
         ctx.closePath();
         ctx.strokeStyle = `rgba(0,229,255,${alpha})`;
@@ -361,8 +361,8 @@ if (partnerTrack) {
             ctx.stroke();
         }
         // crosshair ticks
-        [[cx, cy-150,cx,cy-130],[cx,cy+130,cx,cy+150],[cx-150,cy,cx-130,cy],[cx+130,cy,cx+150,cy]].forEach(([x1,y1,x2,y2]) => {
-            ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+        [[cx, cy - 150, cx, cy - 130], [cx, cy + 130, cx, cy + 150], [cx - 150, cy, cx - 130, cy], [cx + 130, cy, cx + 150, cy]].forEach(([x1, y1, x2, y2]) => {
+            ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
             ctx.strokeStyle = `rgba(0,229,255,${reticle.alpha * 1.5})`; ctx.lineWidth = 1; ctx.stroke();
         });
 
@@ -396,7 +396,7 @@ if (partnerTrack) {
             for (let j = i + 1; j < nodes.length; j++) {
                 const dx = nodes[j].x - nodes[i].x;
                 const dy = nodes[j].y - nodes[i].y;
-                const dist = Math.sqrt(dx*dx + dy*dy);
+                const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < CONN_DIST) {
                     const alpha = (1 - dist / CONN_DIST) * 0.18;
                     ctx.beginPath();
