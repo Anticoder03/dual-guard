@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Test</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmL18misQw9KdwqGaw3zHkitj8vG6QF2Y"></script>
+</head>
+<body>
+    <div id="map" style="height:500px;width:100%;"></div>
+
+    <script>
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 23.0225, lng: 72.5714 },
+            zoom: 10
+        });
+    </script>
+</body>
+</html>
