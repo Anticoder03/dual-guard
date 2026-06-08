@@ -1,0 +1,3 @@
+<FilesMatch "^(robots\.txt|sitemap\.xml)$">
+    Require all denied
+</FilesMatch>
